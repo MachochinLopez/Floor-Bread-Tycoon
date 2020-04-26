@@ -8,15 +8,14 @@ public class StatsManager : MonoBehaviour
     public int BreadPerClick { get; set; }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         BreadPerClick = 1;
-        PerSecondBreadGeneration = 0.3f;
+        PerSecondBreadGeneration = 0.0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void IncreasePerSecondGeneration(float amount)
     {
-
+        PerSecondBreadGeneration += amount;
     }
 }

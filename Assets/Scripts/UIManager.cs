@@ -11,17 +11,15 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Text BreadPerSecond;
 
+    [SerializeField]
+    private Text Money;
+
     // Start is called before the first frame update
     void Start()
     {
         BreadCounter.text = "0";
         BreadPerSecond.text = "0";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Money.text = "0";
     }
 
     public void UpdateBreadCounter(string amount)
@@ -32,5 +30,10 @@ public class UIManager : MonoBehaviour
     public void UpdateBreadPerSecond(string amount)
     {
         BreadPerSecond.text = amount;
+    }
+
+    public void UpdateMoney(string amount)
+    {
+        Money.text = amount;
     }
 }

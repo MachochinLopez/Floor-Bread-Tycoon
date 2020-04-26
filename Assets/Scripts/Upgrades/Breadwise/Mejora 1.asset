@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf65438ea811474b8515d1d22980b94, type: 3}
+  m_Name: Mejora 1
+  m_EditorClassIdentifier: 
+  description: Dos Manos
+  icon: {fileID: 21300000, guid: 03eaecee67e5ba148ba7eeea27b15e2b, type: 3}
+  initialIncrement: 1
+  initialPrice: 10
+  incrementalFactor: 0.2
+  specialIncrement: 
+  incrementalAspect: 1
+  costType: 1

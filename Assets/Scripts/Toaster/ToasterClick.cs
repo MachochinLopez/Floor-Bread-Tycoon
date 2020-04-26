@@ -14,12 +14,6 @@ public class ToasterClick : MonoBehaviour
         generalManager = GameObject.Find("GeneralManager").GetComponent<GeneralManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // Al hacerle click a la tostadora...
     private void OnMouseDown()
     {

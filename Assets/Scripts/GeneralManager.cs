@@ -14,14 +14,14 @@ public class GeneralManager : MonoBehaviour
     public int ActualBreadAmount { get; set; }
     public int ActualMoneyAmount { get; set; }
 
-    public float cummulativeAux;
+    private float cummulativeAux;
 
     // Start is called before the first frame update
     void Start()
     {
         // Inicializar variables
         ActualBreadAmount = 0;
-        ActualMoneyAmount = 0;
+        ActualMoneyAmount = 0;        
         cummulativeAux = 0.0f;
 
         // Inicializar referencias
@@ -30,11 +30,9 @@ public class GeneralManager : MonoBehaviour
 
         // Llama cada segundo a la función que agrega panes automáticamente.
         InvokeRepeating("StartAutomaticBreadGeneration", 0.0f, 1.0f);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Mostrar el valor inicial de pan por segundo.
+        uiManager.UpdateBreadPerSecond(statsManager.PerSecondBreadGeneration.ToString());
     }
 
     // Al dar clic agrega la cantidad de panes que tenga en sus stats.
@@ -60,5 +58,12 @@ public class GeneralManager : MonoBehaviour
 
         // Actualiza la UI
         uiManager.UpdateBreadCounter(ActualBreadAmount.ToString());
+    }
+
+    // Al tener ventas se ejecuta este método.
+    public void IncreaseMoney(int amount)
+    {
+        ActualMoneyAmount += amount;
+        uiManager.UpdateMoney(ActualMoneyAmount.ToString());
     }
 }
