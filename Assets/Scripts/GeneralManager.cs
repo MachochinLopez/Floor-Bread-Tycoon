@@ -13,6 +13,7 @@ public class GeneralManager : MonoBehaviour
     // VARIABLES DE STATS ACTUALES
     public int ActualBreadAmount { get; set; }
     public int ActualMoneyAmount { get; set; }
+    public float ActualIncrementAmount { get; set; }
 
     private float cummulativeAux;
 
@@ -22,6 +23,7 @@ public class GeneralManager : MonoBehaviour
         // Inicializar variables
         ActualBreadAmount = 0;
         ActualMoneyAmount = 0;        
+        ActualIncrementAmount = 0.0f;
         cummulativeAux = 0.0f;
 
         // Inicializar referencias
@@ -45,7 +47,7 @@ public class GeneralManager : MonoBehaviour
     private void StartAutomaticBreadGeneration()
     {
         // Agrega cada segundo al acumulado la cantidad definida por segundo.
-        cummulativeAux += statsManager.PerSecondBreadGeneration;
+        cummulativeAux += ActualIncrementAmount;
 
         // Si el acumulado por segundo es mayor o igual a uno...
         if(cummulativeAux / 1 >= 1)
@@ -65,5 +67,12 @@ public class GeneralManager : MonoBehaviour
     {
         ActualMoneyAmount += amount;
         uiManager.UpdateMoney(ActualMoneyAmount.ToString());
+    }
+
+    // Incrementa el valor de generación de pan automático.
+    public void IncreaseIncrement(float amount)
+    {
+        ActualIncrementAmount += amount;
+        uiManager.UpdateBreadPerSecond(ActualIncrementAmount.ToString());
     }
 }

@@ -17,6 +17,10 @@ public class UpgradeInstance : MonoBehaviour
     private Text Price;
     private Image Icon;
 
+    public UpgradeInstance activatesUpgrade = null;
+
+    public bool isFirstUpgrade = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,13 +52,17 @@ public class UpgradeInstance : MonoBehaviour
         }
 
         DefineIncrement(definition.initialIncrement.ToString(), definition.specialIncrement);
-
+        
+        if (!isFirstUpgrade)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void UpdateUpgrade()
     {
+        Amount.text = CurrentAmount.ToString();
         Price.text = CurrentPrice + " B";
-        Amount.text = CurrentAmount + " B";
         DefineIncrement(CurrentIncrement.ToString(), definition.specialIncrement);
     }
 
