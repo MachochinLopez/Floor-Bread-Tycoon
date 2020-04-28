@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class BuyUpgrade : MonoBehaviour
 {
-    private GeneralManager generalManager;
-    private UpgradeInstance upgradeInstance;
+    protected GeneralManager generalManager;
+    protected UpgradeInstance upgradeInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class BuyUpgrade : MonoBehaviour
             // Aumenta el número de veces que se ha mejorado y lo despliega.
             upgradeInstance.CurrentAmount++;
             // Aumenta el costo de la mejora
-            upgradeInstance.CurrentPrice *= Mathf.FloorToInt(upgradeInstance.definition.incrementalFactor * upgradeInstance.CurrentPrice);
+            upgradeInstance.CurrentPrice += Mathf.FloorToInt(upgradeInstance.definition.incrementalFactor * upgradeInstance.CurrentPrice);
             // Aumenta el incremento de la mejora
             upgradeInstance.CurrentIncrement += Mathf.Floor(upgradeInstance.CurrentIncrement * upgradeInstance.definition.incrementalFactor * 100) / 100;
             // Actualiza el número de la mejora.
@@ -47,10 +47,10 @@ public class BuyUpgrade : MonoBehaviour
     }
 
     // Revisa si puede desbloquear la siguiente mejora.
-    private void CheckIfCanUnlockNextUpgrade()
+    protected void CheckIfCanUnlockNextUpgrade()
     {
         // Al llegar al nivel 5
-        if (upgradeInstance.CurrentAmount == 1)
+        if (upgradeInstance.CurrentAmount == 5)
         {
             // Desbloquea la siguiente mejora.
             UnlockUpgrade();
@@ -58,7 +58,7 @@ public class BuyUpgrade : MonoBehaviour
     }
 
     // Desbloquear la siguiente mejora.
-    private void UnlockUpgrade()
+    protected void UnlockUpgrade()
     {
         if(upgradeInstance.activatesUpgrade != null)
         {

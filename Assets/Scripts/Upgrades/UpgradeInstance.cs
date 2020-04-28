@@ -82,6 +82,10 @@ public class UpgradeInstance : MonoBehaviour
             case 3:
                 Increment.text = specialIncrement;
                 break;
+            // Si es una mejora especial.
+            case 4:
+                Increment.text = value + " per click";
+                break;
             default:
                 Increment.text = value;
                 break;

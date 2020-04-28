@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cf65438ea811474b8515d1d22980b94, type: 3}
-  m_Name: Mejora 1
+  m_Name: 330
   m_EditorClassIdentifier: 
-  description: Dos Manos
-  icon: {fileID: 21300000, guid: 03eaecee67e5ba148ba7eeea27b15e2b, type: 3}
+  description: 330 AC
+  icon: {fileID: 21300000, guid: 87d18f5c96a48a0458cec33cb0f68544, type: 3}
   initialIncrement: 1
-  initialPrice: 10
-  incrementalFactor: 0.2
+  initialPrice: 2000
+  incrementalFactor: 2
   specialIncrement: 
   incrementalAspect: 1
   costType: 1

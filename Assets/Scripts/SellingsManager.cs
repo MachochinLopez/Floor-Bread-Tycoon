@@ -20,7 +20,7 @@ public class SellingsManager : MonoBehaviour
         generalManager = GameObject.Find("GeneralManager").GetComponent<GeneralManager>();
 
         // Inicializar variables
-        Fame = 10;
+        Fame = 5;
         BreadPrice = 0.5f;
 
         // Iniciar la venta de pan.

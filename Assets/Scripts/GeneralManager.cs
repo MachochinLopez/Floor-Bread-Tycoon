@@ -14,6 +14,7 @@ public class GeneralManager : MonoBehaviour
     public int ActualBreadAmount { get; set; }
     public int ActualMoneyAmount { get; set; }
     public float ActualIncrementAmount { get; set; }
+    public int ActualPerClickAmount { get; set; }
 
     private float cummulativeAux;
 
@@ -22,12 +23,13 @@ public class GeneralManager : MonoBehaviour
     {
         // Inicializar variables
         ActualBreadAmount = 0;
-        ActualMoneyAmount = 0;        
+        ActualMoneyAmount = 0;
+        ActualPerClickAmount = 1;
         ActualIncrementAmount = 0.0f;
-        cummulativeAux = 0.0f;
+        cummulativeAux = 0.0f; 
 
-        // Inicializar referencias
-        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+         // Inicializar referencias
+         uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         statsManager = this.GetComponent<StatsManager>();
 
         // Llama cada segundo a la función que agrega panes automáticamente.
@@ -40,8 +42,13 @@ public class GeneralManager : MonoBehaviour
     // Al dar clic agrega la cantidad de panes que tenga en sus stats.
     public void IncreaseBreadAmountByClick()
     {
-        ActualBreadAmount += statsManager.BreadPerClick;
+        ActualBreadAmount += ActualPerClickAmount;
         uiManager.UpdateBreadCounter(ActualBreadAmount.ToString());
+    }
+
+    public void IncreasePerClickBread(int amount)
+    {
+        ActualPerClickAmount += amount;
     }
 
     private void StartAutomaticBreadGeneration()
